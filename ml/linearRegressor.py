@@ -29,10 +29,8 @@ class linReg():
                 self.slope = self.slope - lr * slopeGrad
                 self.intersect = self.intersect - lr * intersectGrad
 
+                print(self.slope)
                 i += 1
-
-            y_pred = np.matmul(X, self.slope) + self.intersect
-            print(np.mean((y_pred - y)**2))
 
         # MINI-BATCH GRADIENT
         elif grad == 'miniBatch':
@@ -86,10 +84,6 @@ class linReg():
 
                     self.slope = self.slope - v1
                     self.intersect = self.intersect - v2
-
-            y_pred = np.matmul(X, self.slope) + self.intersect
-            print(np.mean((y_pred - y)**2))
-
 
         # NESTEROV's ACCELERATED GRADIENT
         elif grad == 'NAG':
